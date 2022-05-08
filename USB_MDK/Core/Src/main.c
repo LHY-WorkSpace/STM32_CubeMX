@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "sdio.h"
+#include "spi.h"
 #include "usart.h"
 #include "usb_device.h"
 #include "gpio.h"
@@ -99,34 +100,22 @@ int main(void)
   MX_USB_DEVICE_Init();
   MX_SDIO_SD_Init();
   MX_USART1_UART_Init();
+  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
-    printf("³õÊ¼»¯×´Ì¬£º%d   \r\n", HAL_SD_GetCardState(&hsd) );
+
+
+  u8g2_Init();
+
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-//    printf("¹ÒÔØ¿¨");
-// retSD = f_mount(&SDFatFS, SDPath, 1);
-//  if(retSD)
-//  {
-//  printf("mount error : %d \r\n",retSD);
-//  return -1;
-//  }
-//  else
-//  {
-//  printf("mount sucess!!! \r\n");
-//  }
-//  HAL_SD_CardCIDTypeDef CID;
-//  HAL_StatusTypeDef s1 = HAL_SD_GetCardCID(&hsd, &CID);
-//  HAL_SD_CardCSDTypeDef CSD;
-//  HAL_StatusTypeDef s2 = HAL_SD_GetCardCSD(&hsd, &CSD);
-//  HAL_SD_CardStatusTypeDef status;
-//  HAL_StatusTypeDef s3 = HAL_SD_GetCardStatus(&hsd, &status);
-//  HAL_SD_CardInfoTypeDef cardInfo;
-//  HAL_StatusTypeDef s4 = HAL_SD_GetCardInfo(&hsd, &cardInfo);
-//  float fCardSize = 1.0*cardInfo.BlockNbr*cardInfo.BlockSize/1024/1024;
-// printf("Card Size:%.2f M\r\n", fCardSize);
 
+ Start_Page();
+ Display_FreeRTOS_Logo();
+ Display_NIUNI();
   while (1)
   {
 
